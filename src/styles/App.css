@@ -1,0 +1,223 @@
+@charset "UTF-8";
+html,
+body {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	margin: 0;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: "Styrene A Web", "Helvetica Neue", Sans-Serif;
+    font-weight: 400;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#root {
+	position: relative;
+	padding: 0 20px;
+	margin: 0;
+	width: calc(100% - 40px);
+	height: auto;
+	min-height: 100%;
+	background-image: url(../assets/colors.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #000000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.App {
+	width: 100%;
+	min-height: 800px;
+	text-align: center;
+    flex: 1 0 auto;
+}
+
+.container {
+	height: 100%;
+	background-color: #1366cb;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.header-container {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.header {
+	margin: 70px auto 51px;
+	font-size: 40px;
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+	width: calc(100% - 48px);
+	padding: 0 24px;
+	display: block;
+	position: relative;
+}
+
+.sub-text {
+	font-size: 25px;
+	color: white;
+	letter-spacing: -0.04em;
+	margin: 24px auto;
+	font-weight: 400;
+}
+
+.gradient-text {
+	background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.cta-button {
+	display: inline-block;
+	border: 2px solid #8259ef;
+	height: 50px;
+	width: 100%;
+	max-width: 280px;
+	background-color: #8259ef;
+	color: white;
+	border-radius: 5px;
+	box-sizing: border-box;
+	padding: 0 20px;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 18px;
+	letter-spacing: 0;
+	line-height: 1.2;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	font-family: sans-serif;
+	transition: all 0.1 ease-out;
+}
+
+.cta-button:hover {
+	background-color: black;
+	color: white;
+}
+
+.opensea-button {
+	background-color: rgb(32, 129, 226);
+}
+
+.mint-count {
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.footer-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 30px;
+}
+
+.hedera-logo {
+	width: 428px;
+	height: 138px;
+}
+
+.footer-text {
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.logo .symbol {
+	width: 90px;
+    height: 90px;
+    display: flex;
+	position: relative;
+	margin-right: 20px;
+	align-items: center;
+}
+
+.logo .symbol svg {
+    position: relative;
+    display: block;
+	height: auto;
+}
+.logo .symbol svg path {
+	fill: white;
+}
+.logo .symbol svg path.h {
+	fill: black;
+}
+
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 25px;
+	margin-bottom: 70px;
+}
+
+.logo span {
+	color: white;
+	font-size: 53px;
+	margin-top: -4px;
+	line-height: 1;
+	font-weight: 300;
+	letter-spacing: -0.03em;
+}
+
+@media (max-width: 340px) {
+	.logo .symbol {
+		width: 60px;
+		height: 60px;
+	}
+	.logo span {
+		font-size: 40px;
+	}
+}
+
+/* KeyFrames */
+@-webkit-keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@-moz-keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
