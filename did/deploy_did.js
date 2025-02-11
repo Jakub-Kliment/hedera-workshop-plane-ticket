@@ -25,18 +25,25 @@ async function main() {
         client: client 
     });
     const registeredDid = await did.register();
+    const didIdentifier = await registeredDid.getIdentifier()
 
     console.log("\n");
     console.log(`DID PRIVATE KEY: ${didPrivateKey.toString()}`);
     console.log(`DID PUBLIC KEY: ${didPrivateKey.publicKey.toString()}`);
-    console.log(`DID Identifier: ${registeredDid.getIdentifier()}`);
+    console.log(`DID Identifier: ${didIdentifier}`);
 
     // Add ID proof to DID
     await did.addService({
-        id: "",
-        type: "",
-        serviceEndpoint: "",
-    })
+        id: didIdentifier,
+        type: "PersonalInfoService",
+        serviceEndpoint: {
+            name: "Bob",
+            surname: "Dillon",
+            birthdate: "2000-03-07",
+            nationality: "Swiss",
+            id_number: "SW1000200"
+        }
+    });
 }
 
 main();
