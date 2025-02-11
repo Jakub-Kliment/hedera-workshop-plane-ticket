@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hashgraph/did-sdk-js": "github:hashgraph/did-sdk-js"
+    "@hashgraph/did-sdk-js": "github:hashgraph/did-sdk-js",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
