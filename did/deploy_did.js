@@ -24,17 +24,24 @@ async function main() {
         privateKey: didPrivateKey,
         client: client 
     });
+
+    console.log("Registering DID...");
+
     const registeredDid = await did.register();
     const didIdentifier = await registeredDid.getIdentifier()
 
     console.log("\n");
-    console.log(`DID PRIVATE KEY: ${didPrivateKey.toString()}`);
-    console.log(`DID PUBLIC KEY: ${didPrivateKey.publicKey.toString()}`);
+    console.log("DID registered successfully !");
     console.log(`DID Identifier: ${didIdentifier}`);
 
-    // Add ID proof to DID
-    await did.addService({
-        id: didIdentifier,
+    // Add ID as a service to DID
+    console.log("\n");
+    console.log("Adding ID to DID...");
+
+    const serviceIdentifier = "";
+
+    await registeredDid.addService({
+        id: serviceIdentifier,
         type: "PersonalInfoService",
         serviceEndpoint: {
             name: "Bob",
@@ -44,6 +51,42 @@ async function main() {
             id_number: "SW1000200"
         }
     });
+
+    console.log("ID added successfully!");
+
+    // Add verification method of ID to DID
+    const verificationMethodIdentifier = "";
+    const verificationMethodPublicKey = HcsDid.stringToPublicKey("");
+
+    console.log("\n");
+    console.log("Adding verification method to DID...");
+
+    await registeredDid.addVerificationMethod({
+        id: verificationMethodIdentifier,
+        type: "Ed25519VerificationKey2018",
+        controller: didIdentifier,
+        publicKey: verificationMethodPublicKey,
+    });
+
+    console.log("Verification method added successfully !");
+
+    // Link verification method with the ID (create a relationship)
+    const verificationRelationshipIdentifier = "";
+    const verificationRelationshipPublicKey = HcsDid.stringToPublicKey("");
+
+    console.log("\n");
+    console.log("Linking ID to verification method...");
+
+    await did.addVerificationRelationship({
+        id: verificationRelationshipIdentifier + "#key-1",
+        relationshipType: "authentication",
+        type: "Ed25519VerificationKey2018",
+        controller: registeredDid.getIdentifier(),
+        publicKey: verificationRelationshipPublicKey,
+    });
+
+    console.log("Linked ID with verification method !");
+
 }
 
 main();
