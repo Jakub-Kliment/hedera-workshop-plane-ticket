@@ -77,11 +77,11 @@ async function main() {
     console.log("\n");
     console.log("Linking ID to verification method...");
 
-    await did.addVerificationRelationship({
+    await registeredDid.addVerificationRelationship({
         id: verificationRelationshipIdentifier + "#key-1",
         relationshipType: "authentication",
         type: "Ed25519VerificationKey2018",
-        controller: registeredDid.getIdentifier(),
+        controller: didIdentifier,
         publicKey: verificationRelationshipPublicKey,
     });
 
